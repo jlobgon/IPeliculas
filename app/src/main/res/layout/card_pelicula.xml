@@ -1,107 +1,88 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="false"
+    app:contentPadding="10dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginHorizontal="12dp"
+  >
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="409dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:cardElevation="8dp"
-        app:cardUseCompatPadding="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        android:padding="12dp">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:paddingBottom="10dp"
-            android:layout_height="wrap_content">
+        <!-- Imagen -->
+        <ImageView
+            android:id="@+id/card_pelicula_imageView"
+            android:layout_width="108dp"
+            android:layout_height="140dp"
+            android:clipToOutline="true"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="@drawable/avatar"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <ImageView
-                android:id="@+id/card_pelicula_imageView"
-                android:layout_width="108dp"
-                android:layout_height="113dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/avatar"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.048"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <!-- Título -->
+        <TextView
+            android:id="@+id/card_pelicula_textView_titulo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Título de la Película"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/card_pelicula_imageView"
+            app:layout_constraintTop_toTopOf="@id/card_pelicula_imageView" />
 
-            <TextView
-                android:id="@+id/card_pelicula_textView_titulo"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginEnd="20dp"
-                android:text="Titulo"
-                android:textAlignment="viewStart"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/card_pelicula_imageView"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="1.0"
-                app:layout_constraintStart_toEndOf="@+id/card_pelicula_imageView"
-                app:layout_constraintTop_toTopOf="@+id/card_pelicula_imageView"
-                app:layout_constraintVertical_bias="0.0" />
+        <!-- Género -->
+        <TextView
+            android:id="@+id/card_pelicula_textView_genero"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="sans-serif"
+            android:text="Género"
+            android:textColor="#82B1FF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@id/card_pelicula_textView_titulo"
+            app:layout_constraintStart_toStartOf="@id/card_pelicula_textView_titulo"
+            app:layout_constraintTop_toBottomOf="@id/card_pelicula_textView_titulo" />
 
-            <TextView
-                android:id="@+id/card_pelicula_textView_genero"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:text="Género"
-                android:textAlignment="viewStart"
-                android:textSize="16sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/card_pelicula_textView_titulo"
-                app:layout_constraintHorizontal_bias="0.502"
-                app:layout_constraintStart_toStartOf="@+id/card_pelicula_textView_titulo"
-                app:layout_constraintTop_toBottomOf="@+id/card_pelicula_textView_titulo"
-                app:layout_constraintVertical_bias="0.0" />
+        <!-- RatingBar alineado -->
+        <RatingBar
+            android:id="@+id/card_pelicula_rating_bar"
+            style="@style/Widget.AppCompat.RatingBar.Small"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:isIndicator="true"
+            android:numStars="5"
+            android:progressTint="#2196F3"
+            android:stepSize="0.5"
+            app:layout_constraintStart_toStartOf="@id/card_pelicula_textView_genero"
+            app:layout_constraintTop_toBottomOf="@id/card_pelicula_textView_genero" />
 
-            <!--android:isIndicator="true" hace que el RatingBar sea solo de visualización.
-                Es decir, el usuario no puede interactuar ni cambiar la puntuación.-->
+        <!-- Descripción -->
+        <TextView
+            android:id="@+id/card_pelicula_textView_descripcion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="Descripción breve de la película..."
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="@id/card_pelicula_textView_genero"
+            app:layout_constraintStart_toStartOf="@id/card_pelicula_textView_genero"
+            app:layout_constraintTop_toBottomOf="@id/card_pelicula_rating_bar" />
 
-            <RatingBar
-
-                android:id="@+id/card_pelicula_rating_bar"
-                style="@android:style/Widget.DeviceDefault.Light.RatingBar"
-                android:layout_width="235dp"
-                android:layout_height="40dp"
-                android:isIndicator="true"
-                android:numStars="5"
-                android:progressTint="@color/yellow"
-                android:scaleX="0.5
-"
-                android:scaleY="0.5"
-                android:stepSize="0.5"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/card_pelicula_textView_descripcion"
-                app:layout_constraintHorizontal_bias="0.606"
-                app:layout_constraintStart_toStartOf="@+id/card_pelicula_imageView"
-                app:layout_constraintTop_toBottomOf="@+id/card_pelicula_textView_descripcion"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <TextView
-                android:id="@+id/card_pelicula_textView_descripcion"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="Descripción"
-                android:gravity="start"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="@+id/card_pelicula_textView_genero"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="@+id/card_pelicula_textView_genero"
-                app:layout_constraintTop_toBottomOf="@+id/card_pelicula_textView_genero"
-                app:layout_constraintVertical_bias="0.0" />
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
