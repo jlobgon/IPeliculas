@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:fitsSystemWindows="true">
+
+    <!-- Imagen -->
+    <ImageView
+        android:id="@+id/detail_activity_imageview"
+        android:layout_width="0dp"
+        android:layout_height="228dp"
+        android:layout_marginBottom="16dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/avatar" />
+
+    <!-- Label Título -->
+    <TextView
+        android:id="@+id/textView_titulo_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="16dp"
+        android:text="Título:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/detail_activity_imageview" />
+
+    <!-- Título de la película -->
+    <TextView
+        android:id="@+id/activity_detail_titulo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Nombre de la película"
+        android:textAlignment="viewStart"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/activity_detail_genero"
+        app:layout_constraintStart_toStartOf="@+id/activity_detail_genero"
+        app:layout_constraintTop_toTopOf="@+id/textView_titulo_label" />
+
+    <!-- Género -->
+    <TextView
+        android:id="@+id/textView_genero_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Género:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView_titulo_label"
+        app:layout_constraintTop_toBottomOf="@id/activity_detail_titulo" />
+
+    <TextView
+        android:id="@+id/activity_detail_genero"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Acción"
+        android:textSize="18sp"
+        android:layout_marginStart="8dp"
+        app:layout_constraintBaseline_toBaselineOf="@id/textView_genero_label"
+        app:layout_constraintStart_toEndOf="@id/textView_genero_label"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- RatingBar -->
+    <RatingBar
+        android:id="@+id/activity_detail_rating_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:isIndicator="true"
+        android:numStars="5"
+        android:progressTint="#FFEB3B"
+        app:layout_constraintStart_toStartOf="@+id/textView_genero_label"
+        app:layout_constraintTop_toBottomOf="@id/activity_detail_genero" />
+
+    <!-- Sinopsis título -->
+    <TextView
+        android:id="@+id/textView_sinopsis_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Sinopsis Completa:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView_genero_label"
+        app:layout_constraintTop_toBottomOf="@id/activity_detail_rating_bar" />
+
+    <!-- Sinopsis contenido -->
+    <TextView
+        android:id="@+id/activity_detail_sinopsis"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Aquí va la sinopsis completa de la película."
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView_sinopsis_label"
+        app:layout_constraintTop_toBottomOf="@id/textView_sinopsis_label" />
+
+    <!-- Director -->
+    <TextView
+        android:id="@+id/textView_director_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Director:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/activity_detail_sinopsis"
+        app:layout_constraintTop_toBottomOf="@id/activity_detail_sinopsis" />
+
+    <!-- Fecha de estreno -->
+
+    <TextView
+        android:id="@+id/activity_detail_director"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="Nombre del Director"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_director_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_director_label"
+        app:layout_constraintTop_toTopOf="@+id/textView_director_label" />
+
+    <TextView
+        android:id="@+id/textView_fecha_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Fecha de estreno:"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView_director_label"
+        app:layout_constraintTop_toBottomOf="@id/textView_director_label" />
+
+    <TextView
+        android:id="@+id/activity_detail_fecha_estreno"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:text="dd/mm/yyyy"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_fecha_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView_fecha_label"
+        app:layout_constraintTop_toTopOf="@+id/textView_fecha_label" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
