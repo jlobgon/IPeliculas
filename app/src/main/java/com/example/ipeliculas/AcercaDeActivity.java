@@ -10,6 +10,13 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class AcercaDeActivity extends AppCompatActivity {
 
+    /**
+     * Método llamado al crear la actividad.
+     * Configura el layout, habilita Edge-to-Edge y ajusta el padding según los insets del sistema.
+     * También configura la ActionBar para mostrar el botón de volver.
+     *
+     * @param savedInstanceState Bundle con el estado previo de la actividad, si existe.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,13 +28,17 @@ public class AcercaDeActivity extends AppCompatActivity {
             return insets;
         });
 
-        //Configuramos actionBar para que tenga un botón de volver
+        // Configuramos actionBar para que tenga un botón de volver
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-
+        getSupportActionBar().setTitle("Acerca de");
     }
 
-    //Función que maneja el botón de volver
+    /**
+     * Maneja el evento del botón de volver en la ActionBar.
+     *
+     * @return true indicando que el evento ha sido consumido.
+     */
     @Override
     public boolean onSupportNavigateUp() {
         getOnBackPressedDispatcher().onBackPressed(); // vuelve a la activity anterior

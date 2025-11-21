@@ -1,24 +1,17 @@
 package com.example.ipeliculas;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.animation.AnimationUtils;
-import android.view.animation.LayoutAnimationController;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -28,6 +21,14 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView.Adapter rva;
     RecyclerView.LayoutManager lm;
     ArrayList<Pelicula> listaPelicula = new ArrayList<>();
+
+    /**
+     * Método llamado al crear la actividad.
+     * Configura el layout, habilita Edge-to-Edge, inicializa y configura el RecyclerView
+     * con la lista de películas.
+     *
+     * @param savedInstanceState Bundle con el estado previo de la actividad, si existe.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,16 +46,14 @@ public class MainActivity extends AppCompatActivity {
         // Enlazamos el adaptador con el objeto RecyclerView
         rv.setAdapter(rva);
         rv.setLayoutManager(lm);
-
-
-
-
-
     }
 
-
-    //Este método es necesario para incluir el menú en la Activity
-    //Hereda de Activity, por eso es Override
+    /**
+     * Crea el menú de opciones de la actividad.
+     *
+     * @param menu Menú que se mostrará en la ActionBar.
+     * @return true indicando que el menú ha sido creado correctamente.
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         MenuInflater inflater = getMenuInflater();
@@ -62,6 +61,12 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Maneja la selección de un ítem del menú de opciones.
+     *
+     * @param item Ítem del menú seleccionado.
+     * @return true si el evento fue manejado, false de lo contrario.
+     */
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
@@ -79,9 +84,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    /**
+     * Llena la lista de películas con datos de ejemplo.
+     * Se agregan varias películas con su título, género, valoración, sinopsis,
+     * descripción corta, imagen, director y fecha de estreno.
+     */
     public void llenarListaPeliculas() {
         Calendar cal = Calendar.getInstance();
 
+        // Ejemplo: Avatar
         cal.set(2025, Calendar.NOVEMBER, 20);
         Date fechaAvatar = cal.getTime();
         Pelicula avatar = new Pelicula(
@@ -96,8 +107,7 @@ public class MainActivity extends AppCompatActivity {
         );
         Pelicula.listaPelicula.add(avatar);
 
-
-
+        // Ejemplo: Interestelar
         cal.set(2014, Calendar.NOVEMBER, 7);
         Date fechaInterestelar = cal.getTime();
         Pelicula interestelar = new Pelicula(
@@ -112,9 +122,7 @@ public class MainActivity extends AppCompatActivity {
         );
         Pelicula.listaPelicula.add(interestelar);
 
-
-
-
+        // Ejemplo: Joker
         cal.set(2019, Calendar.OCTOBER, 4);
         Date fechaJoker = cal.getTime();
         Pelicula joker = new Pelicula(
@@ -129,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
         );
         Pelicula.listaPelicula.add(joker);
 
+        // Ejemplo: El Señor de los Anillos
         cal.set(2001, Calendar.DECEMBER, 19);
         Date fechaLOTR = cal.getTime();
         Pelicula lotr = new Pelicula(
@@ -143,8 +152,7 @@ public class MainActivity extends AppCompatActivity {
         );
         Pelicula.listaPelicula.add(lotr);
 
-
-
+        // Ejemplo: Spider-Man
         cal.set(2002, Calendar.MAY, 3);
         Date fechaSpiderman = cal.getTime();
         Pelicula spiderman = new Pelicula(
@@ -159,8 +167,7 @@ public class MainActivity extends AppCompatActivity {
         );
         Pelicula.listaPelicula.add(spiderman);
 
-
-
+        // Ejemplo: Toy Story
         cal.set(1995, Calendar.NOVEMBER, 22);
         Date fechaToyStory = cal.getTime();
         Pelicula toyStory = new Pelicula(
@@ -175,5 +182,4 @@ public class MainActivity extends AppCompatActivity {
         );
         Pelicula.listaPelicula.add(toyStory);
     }
-
 }

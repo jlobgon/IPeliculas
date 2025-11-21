@@ -16,28 +16,34 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 
-
 public class DetailActivity extends AppCompatActivity {
-    TextView titulo,genero,sinopsis,director,fecha;
+    TextView titulo, genero, sinopsis, director, fecha;
     ImageView imagen;
     RatingBar ratingBar;
 
-
+    /**
+     * Método llamado al crear la actividad.
+     * Configura el layout, habilita Edge-to-Edge, asigna la ActionBar con botón de volver
+     * y llena los elementos de la interfaz con la información de la película recibida.
+     *
+     * @param savedInstanceState Bundle con el estado previo de la actividad, si existe.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_detail);
 
-        //Configuramos actionBar para que tenga un botón de volver
+        // Configuramos actionBar para que tenga un botón de volver
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setTitle("Detalle");
 
-        //Recuperamos la información de la película seleccionada
+        // Recuperamos la información de la película seleccionada
         Intent intent = getIntent();
         Pelicula p = (Pelicula) intent.getSerializableExtra("pelicula");
 
-        //Traemos los elementos del xml
+        // Traemos los elementos del XML
         titulo = findViewById(R.id.activity_detail_titulo);
         genero = findViewById(R.id.activity_detail_genero);
         sinopsis = findViewById(R.id.activity_detail_sinopsis);
@@ -46,7 +52,7 @@ public class DetailActivity extends AppCompatActivity {
         fecha = findViewById(R.id.activity_detail_fecha_estreno);
         imagen = findViewById(R.id.detail_activity_imageview);
 
-        //Introducimos la información a cada elemento
+        // Introducimos la información en cada elemento
         titulo.setText(p.getTitulo());
         genero.setText(p.getGenero());
         sinopsis.setText(p.getDescricionLarga());
@@ -57,12 +63,13 @@ public class DetailActivity extends AppCompatActivity {
         Date fechaDate = p.getFechaDeEstreno();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
         fecha.setText(sdf.format(fechaDate));
-
-
-
     }
 
-    //Función que maneja el botón de volver
+    /**
+     * Maneja el evento del botón de volver en la ActionBar.
+     *
+     * @return true indicando que el evento ha sido consumido.
+     */
     @Override
     public boolean onSupportNavigateUp() {
         getOnBackPressedDispatcher().onBackPressed(); // vuelve a la activity anterior
