@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">IPeliculas</string>
+    <string name="title_activity_ir_al_cine">IrAlCineActivity</string>
 </resources>

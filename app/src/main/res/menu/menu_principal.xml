@@ -5,4 +5,8 @@
         android:id="@+id/menuAcercade"
         android:title="Acerca de" />
 
+    <item
+        android:id="@+id/menuIrAlCine"
+        android:title="Ir al Cine" />
+
 </menu>
